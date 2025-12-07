@@ -1,0 +1,5 @@
+{
+  "name": "ColaboraIA: Estrategia Colaborativa",
+  "description": "Una aplicación web para que los docentes generen estrategias de aprendizaje colaborativo en aulas de informática. Analiza el plan de clase, organiza a los estudiantes en grupos óptimos y asigna roles fijos adaptados a la actividad principal, considerando los recursos disponibles.",
+  "requestFramePermissions": []
+}

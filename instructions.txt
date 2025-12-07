@@ -1,0 +1,73 @@
+
+### Cómo Ejecutar ColaboraIA Localmente
+
+Sigue estos pasos para configurar y ejecutar la aplicación en tu propia computadora.
+
+#### Paso 1: Descarga de Dependencias
+
+Para que la aplicación funcione localmente, necesitas descargar las librerías de JavaScript correctas.
+
+1.  **Tailwind CSS**:
+    *   Visita la siguiente URL para obtener la versión completa de Tailwind CSS:
+        `https://cdn.tailwindcss.com`
+    *   Guarda el contenido de esa página en un nuevo archivo llamado `tailwind.css` en la misma carpeta donde tienes `index.html`.
+
+2.  **Librerías de JavaScript**:
+    *   Crea una carpeta llamada `vendor` en el mismo directorio del proyecto.
+    *   Descarga cada una de las siguientes librerías y guárdalas dentro de la carpeta `vendor` con el nombre de archivo correspondiente. **Es importante que los nombres de archivo sean exactos para que el `importmap` funcione.**
+
+        *   **react.js**: `https://esm.sh/react@18.2.0`
+        *   **react-jsx-runtime.js**: `https://esm.sh/react@18.2.0/jsx-runtime`
+        *   **react-dom-client.js**: `https://esm.sh/react-dom@18.2.0/client`
+        *   **google-genai.js**: `https://esm.sh/@google/genai@0.2.1`
+        *   **jspdf.js**: `https://esm.sh/jspdf@2.5.1`
+        *   **html2canvas.js**: `https://esm.sh/html2canvas@1.4.1`
+
+#### Paso 2: Estructura de Archivos
+
+Una vez que hayas descargado todo, tu carpeta del proyecto debería verse así:
+
+```
+/tu-proyecto/
+|-- vendor/
+|   |-- google-genai.js
+|   |-- html2canvas.js
+|   |-- jspdf.js
+|   |-- react.js
+|   |-- react-dom-client.js
+|   `-- react-jsx-runtime.js
+|-- components/
+|   |-- ConfigurationPanel.tsx
+|   |-- icons/
+|   |   `-- Icons.tsx
+|   |-- Loader.tsx
+|   `-- StrategyDisplay.tsx
+|-- services/
+|   `-- geminiService.ts
+|-- App.tsx
+|-- index.html
+|-- index.tsx
+|-- instructions.txt
+|-- metadata.json
+|-- style.css
+|-- tailwind.css
+`-- types.ts
+```
+
+#### Paso 3: Ejecutar un Servidor Local
+
+Debido a las políticas de seguridad de los navegadores modernos, no puedes simplemente abrir `index.html` desde tu explorador de archivos. Necesitas un servidor web local simple.
+
+1.  Abre una terminal o línea de comandos.
+2.  Navega hasta la carpeta de tu proyecto (ej: `cd /ruta/a/tu-proyecto`).
+3.  Si tienes Python 3 instalado, ejecuta el siguiente comando:
+    `python -m http.server`
+
+4.  Abre tu navegador web y ve a la dirección: `http://localhost:8000`
+
+¡Listo! La aplicación debería cargarse en tu navegador.
+
+#### Paso 4: Recordatorio Importante
+
+*   **Conexión a Internet**: Para usar la función "Generar Estrategia", necesitarás una conexión a internet para que la app pueda contactar a la API de Gemini.
+*   **API Key**: Asegúrate de que tu entorno local tiene configurada la variable de entorno `API_KEY` para que la API funcione correctamente.
