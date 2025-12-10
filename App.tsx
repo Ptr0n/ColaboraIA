@@ -1,3 +1,4 @@
+
 import React, { useState, useCallback } from 'react';
 import { Configuration, Strategy } from './types';
 import ConfigurationPanel from './components/ConfigurationPanel';
@@ -29,13 +30,6 @@ const App: React.FC = () => {
         setStrategy(null);
         setError(null);
         setIsLoading(false);
-    }, []);
-
-    const handleStrategyUpdate = useCallback((updatedStrategy: Strategy) => {
-        // Forzamos una actualización de estado limpia.
-        // Al usar una función callback en el setter, React garantiza la actualización
-        // incluso si hay renders concurrentes.
-        setStrategy(() => ({ ...updatedStrategy }));
     }, []);
 
     return (
@@ -74,7 +68,7 @@ const App: React.FC = () => {
                         </button>
                     </div>
                 ) : strategy ? (
-                    <StrategyDisplay strategy={strategy} onSave={handleStrategyUpdate} />
+                    <StrategyDisplay strategy={strategy} />
                 ) : (
                     <ConfigurationPanel onGenerate={handleGenerate} />
                 )}
